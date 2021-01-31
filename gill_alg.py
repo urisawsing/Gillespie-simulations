@@ -1,10 +1,10 @@
-#########################################
-#										#
-#        gillespie algorithm 			#
-#  for a self-gene regulating system	#
-#										#
-#			main program				#
-#########################################
+ #########################################
+#					  #
+#            gillespie algorithm 	  #
+#  	for a self-gene regulating system #
+#					  #
+#		main program		  #
+ #########################################
 
 
 #Developed by Oriol Fernández 31/01/2021
@@ -67,13 +67,13 @@ def Gillespie(mi,tmax=100000):
 
 		T=f.waiting_T(t1,W_0)						#calculating the waiting time from the first time sample and the W_0
 
-		event=t2*W_0								#using the second waiting time to get which reaction will happen
+		event=t2*W_0							#using the second waiting time to get which reaction will happen
 
-		choosing=f.choice(wvec,event)				#choosing this reaction using the previous "event" variable and the vector of weights
+		choosing=f.choice(wvec,event)					#choosing this reaction using the previous "event" variable and the vector of weights
 
-		x1new,x2new,t=f.updateG(choosing,x1,x2,t,T)	#updating the value of the variables x1,x2,t
+		x1new,x2new,t=f.updateG(choosing,x1,x2,t,T)			#updating the value of the variables x1,x2,t
 
-		#print("updated position is",x1new,x2new,t) #uncomment for getting the x value on every step
+		#print("updated position is",x1new,x2new,t) 			#uncomment for getting the x value on every step
 
 
 		#appending the new variable values in the vectors
@@ -86,7 +86,7 @@ def Gillespie(mi,tmax=100000):
 		x2=x2new
 		it=it+1
 
-	#f.plotting(x1vec,x2vec,tvec)					#uncomment for getting the plots at the end of every simulation
+	#f.plotting(x1vec,x2vec,tvec)						#uncomment for getting the plots at the end of every simulation
 	print("steady state gillespie finished")
 	return x1vec,x2vec,tvec							#returning all the vectors
 
@@ -134,15 +134,15 @@ def QGillespie(mi,tmax=100000,seed=42):
 
 		T=f.waiting_T(t1,W_0)						#calculating the waiting time from the first time sample and the W_0
 
-		event=t2*W_0								#using the second waiting time to get which reaction will happen
+		event=t2*W_0							#using the second waiting time to get which reaction will happen
 
-		choosing=f.choice(wvec,event)				#choosing this reaction using the previous "event" variable and the vector of weights
+		choosing=f.choice(wvec,event)					#choosing this reaction using the previous "event" variable and the vector of weights
 
 
 
-		x1new,x2new,t=f.updateQ(choosing,x1,x2,t,T)	#updating the value of the variables x1,x2,t using the QSS criterion
+		x1new,x2new,t=f.updateQ(choosing,x1,x2,t,T)			#updating the value of the variables x1,x2,t using the QSS criterion
 
-		#print("updated position is",x1new,x2new,t) #uncomment for getting the x value on every step
+		#print("updated position is",x1new,x2new,t) 			#uncomment for getting the x value on every step
 
 
 		#appending the new variable values in the vectors
@@ -155,7 +155,7 @@ def QGillespie(mi,tmax=100000,seed=42):
 		x2=x2new
 		it=it+1
 
-	#f.plotting(x1vec,x2vec,tvec)					#uncomment for getting the plots at the end of every simulation
+	#f.plotting(x1vec,x2vec,tvec)						#uncomment for getting the plots at the end of every simulation
 	print(" quasi steady state gillespie finished")
 	return x1vec,x2vec,tvec							#returning all the vectors
 
@@ -163,14 +163,14 @@ def QGillespie(mi,tmax=100000,seed=42):
 
 #main loop of the program	
 
-start=time.time()							#initializing the time for performance purpouses
+start=time.time()								#initializing the time for performance purpouses
 
 
-x1g,x2g,tg=Gillespie(500000)				#function calling the Gillespie algorithm maxiter=500000
-gillespiet=time.time()						#saving the time elapsed for the Gillespie algorithm
+x1g,x2g,tg=Gillespie(500000)							#function calling the Gillespie algorithm maxiter=500000
+gillespiet=time.time()								#saving the time elapsed for the Gillespie algorithm
 
-x1q,x2q,tq=QGillespie(500000)				#function calling the QSS Gillespie algorithm maxiter=500000
-end=time.time()								#saving the time elapsed for the QSS Gillespie algorithm
+x1q,x2q,tq=QGillespie(500000)							#function calling the QSS Gillespie algorithm maxiter=500000
+end=time.time()									#saving the time elapsed for the QSS Gillespie algorithm
 
 
 
