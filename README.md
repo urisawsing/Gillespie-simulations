@@ -8,7 +8,7 @@ The algorithm starts with concentrations `X_1=X_2=0` and exit when the iteration
 The program is executed by running the `gill_alg.py`, the `functions.py` is a auxiliar code with all the functions used by the algorithm
 
 Requirements:
-              Python 3 or higher, 
+              Python 3 or higher, and libraries
               numpy, 
               scipy, 
               matplotlib, 
