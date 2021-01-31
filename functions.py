@@ -1,7 +1,7 @@
  
  ##############################################
-#			functions program with all			#
-#	functions needed in the main algorithm		#
+#		functions program with all	#
+#	functions needed in the main algorithm	#
  ##############################################
 
 #	importing the libraries for math (numpy) random variables (random) 
